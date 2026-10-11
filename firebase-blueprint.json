@@ -1,0 +1,107 @@
+{
+  "entities": {
+    "Dish": {
+      "title": "Dish",
+      "description": "Menu dish item offered by Noir Royale",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "object", "description": "Localized dish name" },
+        "category": { "type": "string", "maxLength": 64 },
+        "price": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "image": { "type": "string", "maxLength": 1000000 },
+        "description": { "type": "object", "description": "Localized description" },
+        "ingredients": { "type": "object", "description": "Localized ingredients" },
+        "chefNotes": { "type": "object" },
+        "sommelierPairing": { "type": "object" },
+        "origin": { "type": "object" },
+        "tags": { "type": "object" },
+        "isChefRecommendation": { "type": "boolean" },
+        "isAvailable": { "type": "boolean" },
+        "addons": { "type": "array" }
+      },
+      "required": ["id", "name", "category", "price", "isAvailable"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Guest dining and delivery order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "code": { "type": "string", "maxLength": 32 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "taxAndService": { "type": "number" },
+        "total": { "type": "number" },
+        "deliveryType": { "type": "string", "maxLength": 64 },
+        "guestName": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "address": { "type": "string", "maxLength": 256 },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "preparing", "out_for_delivery", "delivered", "cancelled"] },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "code", "items", "total", "guestName", "phone", "status", "createdAt"]
+    },
+    "Reservation": {
+      "title": "Reservation",
+      "description": "Guest table reservation request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "code": { "type": "string", "maxLength": 32 },
+        "date": { "type": "string", "maxLength": 32 },
+        "time": { "type": "string", "maxLength": 32 },
+        "guests": { "type": "number" },
+        "seatingArea": { "type": "string", "maxLength": 64 },
+        "guestName": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "specialRequests": { "type": "string", "maxLength": 512 },
+        "status": { "type": "string", "enum": ["confirmed", "seated", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "code", "date", "time", "guests", "guestName", "phone", "status", "createdAt"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Noir Royale restaurant operational settings",
+      "type": "object",
+      "properties": {
+        "name": { "type": "object" },
+        "tagline": { "type": "object" },
+        "phone": { "type": "string", "maxLength": 32 },
+        "email": { "type": "string", "maxLength": 128 },
+        "address": { "type": "object" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "taxRate": { "type": "number" },
+        "serviceFeeRate": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "minOrderAmount": { "type": "number" },
+        "openingHours": { "type": "object" },
+        "acceptingOrders": { "type": "boolean" },
+        "acceptingReservations": { "type": "boolean" }
+      },
+      "required": ["phone", "currency", "acceptingOrders", "acceptingReservations"]
+    }
+  },
+  "firestore": {
+    "/menu/{dishId}": {
+      "schema": { "$ref": "#/entities/Dish" },
+      "description": "Public restaurant menu catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Private customer orders"
+    },
+    "/reservations/{reservationId}": {
+      "schema": { "$ref": "#/entities/Reservation" },
+      "description": "Private table reservations"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/Settings" },
+      "description": "Restaurant public settings and configurations"
+    }
+  }
+}

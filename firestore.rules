@@ -1,0 +1,113 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default-deny all undefined documents
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner() {
+      return isSignedIn() &&
+        request.auth.token.email == 'eepa3142@gmail.com' &&
+        request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isValidDish(d) {
+      return d.id is string &&
+        d.id.size() <= 128 &&
+        d.price is number &&
+        d.price >= 0 &&
+        d.isAvailable is bool;
+    }
+
+    function isValidOrder(o) {
+      return o.id is string &&
+        o.id.size() <= 128 &&
+        o.code is string &&
+        o.code.size() <= 32 &&
+        o.guestName is string &&
+        o.guestName.size() <= 128 &&
+        o.phone is string &&
+        o.phone.size() <= 32 &&
+        o.total is number &&
+        o.total >= 0 &&
+        o.status is string &&
+        o.items is list &&
+        o.items.size() <= 100;
+    }
+
+    function isValidReservation(r) {
+      return r.id is string &&
+        r.id.size() <= 128 &&
+        r.code is string &&
+        r.code.size() <= 32 &&
+        r.guestName is string &&
+        r.guestName.size() <= 128 &&
+        r.phone is string &&
+        r.phone.size() <= 32 &&
+        r.guests is number &&
+        r.guests > 0 &&
+        r.guests <= 100 &&
+        r.status is string;
+    }
+
+    function isValidSettings(s) {
+      return s.phone is string &&
+        s.phone.size() <= 32 &&
+        s.currency is string &&
+        s.currency.size() <= 10 &&
+        s.acceptingOrders is bool &&
+        s.acceptingReservations is bool;
+    }
+
+    // --- MENU COLLECTION ---
+    // Visitors can view menu, only owner can edit dishes
+    match /menu/{dishId} {
+      allow get, list: if true;
+      allow create, update: if isOwner() && isValidId(dishId) && isValidDish(incoming());
+      allow delete: if isOwner() && isValidId(dishId);
+    }
+
+    // --- SETTINGS COLLECTION ---
+    // Visitors can view operational hours & status, only owner can edit
+    match /settings/{settingId} {
+      allow get, list: if true;
+      allow create, update: if isOwner() && isValidId(settingId) && isValidSettings(incoming());
+      allow delete: if false;
+    }
+
+    // --- ORDERS COLLECTION ---
+    // Guests can submit dining orders; ONLY verified owner can list/view/update/delete orders
+    match /orders/{orderId} {
+      allow create: if isValidId(orderId) && isValidOrder(incoming());
+      allow get, list, update, delete: if isOwner();
+    }
+
+    // --- RESERVATIONS COLLECTION ---
+    // Guests can submit table bookings; ONLY verified owner can view/manage/delete reservations
+    match /reservations/{reservationId} {
+      allow create: if isValidId(reservationId) && isValidReservation(incoming());
+      allow get, list, update, delete: if isOwner();
+    }
+
+    // --- SYSTEM COLLECTION ---
+    // System credentials & meta can never be read or written by client
+    match /system/{docId} {
+      allow read, write: if false;
+    }
+  }
+}

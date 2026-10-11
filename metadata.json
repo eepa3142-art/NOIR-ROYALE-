@@ -1,0 +1,6 @@
+{
+  "name": "LUXE NOIR — Luxury Dining Experience",
+  "description": "An ultra-luxury fine dining culinary destination where gastronomy meets artistic opulence. Savor Michelin-grade cuisine, royal ambiance, and bespoke hospitality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

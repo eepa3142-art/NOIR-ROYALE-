@@ -1,0 +1,430 @@
+import { MenuItem } from '../types';
+
+export const initialMenuItems: MenuItem[] = [
+  // 1. Signature Dishes
+  {
+    id: 'sig-wagyu-truffle',
+    name: {
+      ar: 'شريحة واغيو A5 مع كمأة بييمونتي وتعتيق 45 يوماً',
+      en: 'A5 Hyogo Wagyu Tenderloin with Périgord Truffle Jus',
+    },
+    category: 'signatures',
+    price: 245,
+    currency: 'USD',
+    image: '/src/assets/images/dish_wagyu_steak_1791697177267.jpg',
+    description: {
+      ar: 'لحم واغيو ياباني أصيل من مقاطعة هيوغو بدرجة رخامية BMS 11، معتق 45 يوماً في حجرة ملح الهيمالايا، يُقدم مع شرائح الكمأة السوداء الطازجة وفطر الشانتريل وصلصة ماديرا المعتقة.',
+      en: 'Certified Japanese A5 Black Cattle Wagyu (BMS 11) aged 45 days in Himalayan salt vault. Pan-seared with bone marrow butter, shaved fresh black truffle, chanterelle mushrooms, and vintage Madeira reduction.',
+    },
+    ingredients: {
+      ar: ['لحم واغيو A5 معتمد', 'كمأة سوداء طازجة', 'فطر الشانتريل البري', 'زبدة النخاع الفرنسية', 'صلصة ماديرا المركزة'],
+      en: ['Certified Hyogo A5 Wagyu', 'Fresh Périgord Truffle', 'Wild Chanterelle Mushrooms', 'Cultured Bone Marrow Butter', 'Vintage Madeira Jus'],
+    },
+    chefNotes: {
+      ar: 'يتم تحمير الشريحة على نار خشب السنديان بدرجة 450 مئوية لتكوين قشرة كراميل مقرمشة بينما يذوب اللب بدرجة حرارة الفم.',
+      en: 'Charred over white oak binchotan at 450°C to lock in delicate intramuscular marbling. Melts instantly at human body temperature.',
+    },
+    sommelierPairing: {
+      ar: 'شاتو مارغو (Grand Cru Classé 2015) أو بارولو مونفورتينو كونسيرنو',
+      en: 'Château Margaux Premier Grand Cru Classé 2015 or Barolo Monfortino Riserva',
+    },
+    origin: {
+      ar: 'مقاطعة هيوغو — اليابان',
+      en: 'Hyogo Prefecture, Japan',
+    },
+    tags: {
+      ar: ['توصية الشيف', 'معتق 45 يوماً', 'خالٍ من الغلوتين'],
+      en: ["Chef's Signature", '45-Day Dry Aged', 'Gluten Free'],
+    },
+    isChefRecommendation: true,
+    isAvailable: true,
+    addons: [
+      { id: 'add-truffle-extra', name: { ar: 'بشر كمأة ألبا البيضاء الطازجة (5 غرام)', en: 'Extra Fresh White Alba Truffle Shavings (5g)' }, price: 55 },
+      { id: 'add-gold-leaf', name: { ar: 'رقائق ذهب عيار 24 قيراط صالحة للأكل', en: '24K Edible Gold Leaf Draping' }, price: 35 },
+      { id: 'add-marrow', name: { ar: 'نخاع عظم مشوي بالأعشاب البرية', en: 'Roasted Herb Bone Marrow Canoe' }, price: 28 },
+    ],
+  },
+  {
+    id: 'sig-lobster-caviar',
+    name: {
+      ar: 'ميدالية كركند بريتاني مع كافيار أوسيترا وذهب 24 قيراط',
+      en: 'Brittany Blue Lobster with Royal Ossetra Caviar & 24K Leaf',
+    },
+    category: 'signatures',
+    price: 210,
+    currency: 'USD',
+    image: '/src/assets/images/dish_caviar_seafood_1791697187291.jpg',
+    description: {
+      ar: 'كركند أزرق نادر يتم صيده من سواحل بريتاني الفرنسية، مطهو في زبدة النورماندي المدخنة، متوج بكافيار ملكي أوسيترا ورقائق الذهب وصلصة الزعفران الكشميري.',
+      en: 'Rare Brittany blue lobster tail gently butter-poached with preserved lemon emulsion, crowned with Imperial Ossetra Caviar, 24-karat edible gold flake, and saffron flower velouté.',
+    },
+    ingredients: {
+      ar: ['كركند بريتاني أزرق', 'كافيار أوسيترا ملكي', 'ذهب عيار 24 صالح للأكل', 'زعفران كشميري خالص', 'زبدة النورماندي المعتقة'],
+      en: ['Wild Brittany Blue Lobster', 'Imperial Royal Ossetra Caviar', '24K Edible Gold Leaf', 'Pure Kashmiri Saffron', 'Normandy Bordier Butter'],
+    },
+    chefNotes: {
+      ar: 'توازن دقيق بين ملوحة البحر الفاخرة لكافيار الأوسيترا وحلاوة لحم الكركند مع دفء الزعفران المخملي.',
+      en: 'A harmonic study in marine salinity and textural silkiness, punctuated by oceanic mineral bursts.',
+    },
+    sommelierPairing: {
+      ar: 'دوم بيريغنون فينتاج 2013 أو بوليني-مونتراشيه بريمير كرو',
+      en: 'Dom Pérignon Vintage 2013 or Puligny-Montrachet 1er Cru Les Pucelles',
+    },
+    origin: {
+      ar: 'سواحل بريتاني وبحر قزوين',
+      en: 'Brittany Coast, France & Caspian Sea',
+    },
+    tags: {
+      ar: ['أطباق ملكية', 'كافيار نقي', 'مأكولات بحرية فاخرة'],
+      en: ['Imperial Sourcing', 'Pure Caviar', 'Haute Seafood'],
+    },
+    isChefRecommendation: true,
+    isAvailable: true,
+    addons: [
+      { id: 'add-caviar-spoon', name: { ar: 'ملعقة كافيار بيلوغا إضافية (15غ)', en: 'Extra Spoon of Royal Beluga Caviar (15g)' }, price: 85 },
+      { id: 'add-brioche', name: { ar: 'بريوش فرنسي محمص بالزبدة المعتقة', en: 'Toasted Artisanal Bordier Brioche' }, price: 18 },
+    ],
+  },
+
+  // 2. Premium Steaks
+  {
+    id: 'steak-tomahawk-dryaged',
+    name: {
+      ar: 'توماهوك واغيو بلاك أنجوس معتق 60 يوماً (1.2 كغ)',
+      en: 'Dry-Aged Black Onyx Tomahawk 60-Day (1.2 kg)',
+    },
+    category: 'steaks',
+    price: 320,
+    currency: 'USD',
+    image: '/src/assets/images/dish_wagyu_steak_1791697177267.jpg',
+    description: {
+      ar: 'قطعة توماهوك ضخمة للشخصين معتّقة 60 يوماً في ملح الهيمالايا، مشوية على الفحم النباتي الطبيعي مع ملح المالدون المدخن وثوم الألزاس المشوي.',
+      en: 'Prime marble score 9+ Tomahawk cut, aged two months on pink Himalayan salt racks. Sliced tableside with roasted Alsatian garlic heads and truffled beef tallow.',
+    },
+    ingredients: {
+      ar: ['لحم بلاك أنجوس أوسترالي MB9+', 'ملح المالدون المدخن', 'زبدة الأعشاب العطرية', 'ثوم الألزاس المكرمل'],
+      en: ['Rangers Valley MB9+ Beef', 'Smoked Maldon Salt', 'French Herb Compound Butter', 'Confit Wild Garlic'],
+    },
+    chefNotes: {
+      ar: 'شواء كلاسيكي يبرز نكهات البندق والجبن المعتق الناتجة عن فترة التعتيق الطويلة.',
+      en: 'Deeply nutty and buttery dry-aged complexity, finished with flaky sea salt and rendered marrow.',
+    },
+    sommelierPairing: {
+      ar: 'أوبوس ون (Napa Valley 2018)',
+      en: 'Opus One Napa Valley Bordeaux Blend 2018',
+    },
+    origin: {
+      ar: 'رينجرز فالي — أستراليا',
+      en: 'New England Tablelands, Australia',
+    },
+    tags: {
+      ar: ['للمشاركة (شخصين)', 'معتق 60 يوماً', 'شواء على الفحم'],
+      en: ['For Two', '60-Day Salt Aged', 'Binchotan Grilled'],
+    },
+    isChefRecommendation: false,
+    isAvailable: true,
+  },
+  {
+    id: 'steak-chateaubriand',
+    name: {
+      ar: 'شاتوبريان فيليه مينتون مع صلصة بيرنيز بالكمأة البيضاء',
+      en: 'Prime Center-Cut Châteaubriand with Alba Truffle Béarnaise',
+    },
+    category: 'steaks',
+    price: 185,
+    currency: 'USD',
+    image: '/src/assets/images/dish_wagyu_steak_1791697177267.jpg',
+    description: {
+      ar: 'قلب الفيليه البقري الأكثر طراوة، محمر ببطء ويُقدم مع صلصة البيرنيز المخملية المحضرة بالطرخون الطازج وزيت الكمأة البيضاء وبطاطس روبوشون المهروسة.',
+      en: 'Tender prime tenderloin center, roasted with fragrant thyme sprigs, served with velvet tarragon Béarnaise infused with white Alba truffle oil and pommes purée.',
+    },
+    ingredients: {
+      ar: ['قلب فيليه العجل الفاخر', 'صلصة بيرنيز فرنسية', 'كمأة ألبا البيضاء', 'بطاطس روبوشون المهروسة'],
+      en: ['Prime Tenderloin Center', 'Emulsified Béarnaise', 'White Alba Truffle Essence', 'Robuchon-Style Pommes Purée'],
+    },
+    chefNotes: {
+      ar: 'نعومة حريرية تذوب دون مقاومة، تُقطع بسكاكين لاغيول الفرنسية المصنوعة يدوياً.',
+      en: 'Unmatched tenderness, carved with handcrafted custom Laguiole horn-handle knives.',
+    },
+    sommelierPairing: {
+      ar: 'شاتو بويياك بريميير كرو',
+      en: 'Château Pauillac Grand Vin 2016',
+    },
+    origin: {
+      ar: 'شارولايز — فرنسا',
+      en: 'Charolais, Burgundy, France',
+    },
+    tags: {
+      ar: ['كلاسيكي فرنسي', 'طراوة فائقة', 'خالٍ من الغلوتين'],
+      en: ['French Classic', 'Maximum Tenderness', 'Gluten Free'],
+    },
+    isAvailable: true,
+  },
+
+  // 3. Gourmet Pasta
+  {
+    id: 'pasta-tagliolini-alba',
+    name: {
+      ar: 'تاليوليني طازج مع كمأة ألبا البيضاء والزبدة الجبلية 36 شهراً',
+      en: 'Handmade Golden Tagliolini with Shaved White Alba Truffle',
+    },
+    category: 'pasta',
+    price: 155,
+    currency: 'USD',
+    image: '/src/assets/images/dish_truffle_pasta_1791702066315.jpg',
+    description: {
+      ar: 'مكرونة تاليوليني محضرة يدوياً صباح كل يوم بصفار 40 بيضة لكل كيلوغرام دقيق، مغلفة بزبدة جبال الألب المعتقة ومبشور جبن البارميجيانو 36 شهراً مع كمأة ألبا البيضاء الطازجة.',
+      en: 'Daily hand-rolled 40-yolk egg tagliolini, tossed in churned Alpine mountain butter, 36-month vacuum-aged Parmigiano-Reggiano, crowned with 8g of fresh white Alba truffles shaved tableside.',
+    },
+    ingredients: {
+      ar: ['مكرونة تاليوليني يدوية الصنع', 'كمأة ألبا البيضاء الطازجة', 'زبدة ألبيرتي الجبلية', 'بارميجيانو ريجانو 36 شهراً'],
+      en: ['Handmade 40-Yolk Tagliolini', 'Fresh White Alba Truffle', 'Churned Alpine Butter', '36-Month Parmigiano-Reggiano'],
+    },
+    chefNotes: {
+      ar: 'يتم بشر الكمأة البيضاء أمام الضيف مباشرة لتتصاعد رائحتها العطرية الأسطورية مع حرارة المكرونة الطازجة.',
+      en: 'Shaved generously at your table to release the sublime earthen aroma onto piping hot golden strands.',
+    },
+    sommelierPairing: {
+      ar: 'غافي دي غافي بلاك ليبل 2021 أو بارباورسكو بريكو أسيت',
+      en: 'La Scolca Gavi dei Gavi Black Label 2021 or Barbaresco Bricco Asili',
+    },
+    origin: {
+      ar: 'بييمونتي — إيطاليا',
+      en: 'Alba, Piedmont, Italy',
+    },
+    tags: {
+      ar: ['باستا طازجة يومياً', 'كمأة ألبا البيضاء', 'نباتي راقٍ'],
+      en: ['Made Fresh Daily', 'White Alba Truffle', 'Vegetarian Haute'],
+    },
+    isChefRecommendation: true,
+    isAvailable: true,
+    addons: [
+      { id: 'add-truffle-extra-pasta', name: { ar: 'إضافة 5 غرام كمأة ألبا إضافية', en: 'Additional 5g White Alba Truffle' }, price: 50 },
+    ],
+  },
+  {
+    id: 'pasta-lobster-ravioli',
+    name: {
+      ar: 'رافيولي الكركند الأزرق مع حساء الزعفران وبطارخ السمك',
+      en: 'Brittany Lobster Agnolotti with Saffron Bisque & Bottarga',
+    },
+    category: 'pasta',
+    price: 135,
+    currency: 'USD',
+    image: '/src/assets/images/dish_truffle_pasta_1791702066315.jpg',
+    description: {
+      ar: 'حبات رافيولي دقيقة محشوة بلحم الكركند الأزرق المفروم يدوياً وجبن الريكوتا العضوي، تسبح في حساء بيسك الكركند المركز المنكّه بالزعفران الكشميري وبودرة بطارخ السردينيا.',
+      en: 'Hand-pleated agnolotti parcels stuffed with sweet Brittany blue lobster meat and cultured sheep ricotta, bathed in cognac-infused lobster bisque and cured Sardinian bottarga dust.',
+    },
+    ingredients: {
+      ar: ['عجينة الرافيولي اليدوية', 'لحم كركند أزرق', 'حساء بيسك الكركند والكونياك', 'بطارخ سمك السردينيا المعتقة'],
+      en: ['Hand-Pleated Egg Dough', 'Sweet Blue Lobster Meat', 'Cognac Lobster Velouté', 'Aged Sardinian Bottarga'],
+    },
+    chefNotes: {
+      ar: 'انفجار غني بالنكهات البحرية المركزة مع لمسة حمضية خفيفة من الليمون الصقلي.',
+      en: 'An opulent burst of marine sweetness accented with notes of aged cognac and citrus oil.',
+    },
+    sommelierPairing: {
+      ar: 'شابلي غراند كرو فالوميور 2020',
+      en: 'Domaine Christian Moreau Chablis Grand Cru Valmur 2020',
+    },
+    origin: {
+      ar: 'سردينيا وبريتاني',
+      en: 'Brittany Coast & Sardinia, Italy',
+    },
+    tags: {
+      ar: ['باستا بحرية', 'طهي فوري', 'رافيولي يدوي'],
+      en: ['Haute Seafood Pasta', 'Handmade Agnolotti'],
+    },
+    isAvailable: true,
+  },
+
+  // 4. International Cuisine
+  {
+    id: 'intl-truffle-risotto',
+    name: {
+      ar: 'ريزوتو أكويريلو المعتق مع الكمأة السوداء والبارميجيانو 36 شهراً',
+      en: 'Acquerello Aged Carnaroli Risotto with 36-Month Parmigiano',
+    },
+    category: 'international',
+    price: 125,
+    currency: 'USD',
+    image: '/src/assets/images/dish_caviar_seafood_1791697187291.jpg',
+    description: {
+      ar: 'أرز كارنارولي المعتق لمدة 7 سنوات في صوامع مبردة في بيدمونت، يُطهى مع مرق الدواجن العضوي والزبدة الإيطالية، ويُبشر فوقه كمأة أومبريا السوداء عند التقديم.',
+      en: 'Aged 7-year Acquerello Carnaroli grains, stirred with aged chicken consommé, 36-month vacuum-aged Parmigiano Reggiano, and hand-shaved black Umbrian truffles.',
+    },
+    ingredients: {
+      ar: ['أرز أكويريلو المعتق 7 سنوات', 'جبن بارميجيانو ريجانو 36 شهراً', 'كمأة أومبريا السوداء', 'زبدة ألبيرتي الإيطالية'],
+      en: ['7-Year Aged Acquerello Rice', '36-Month Parmigiano Reggiano', 'Umbrian Black Truffles', 'Mountain Dairy Butter'],
+    },
+    chefNotes: {
+      ar: 'قوام موجي كريمي لا يُضاهى (All’Onda) يحمل النكهات الأرضية العميقة للكمأة دون إثقال.',
+      en: 'Perfect all’onda texture, balanced with velvety acidity and earthy umami richness.',
+    },
+    sommelierPairing: {
+      ar: 'غافي دي غافي بلاك ليبل 2021',
+      en: 'La Scolca Gavi dei Gavi Black Label 2021',
+    },
+    origin: {
+      ar: 'بييمونتي — إيطاليا',
+      en: 'Piedmont, Italy',
+    },
+    tags: {
+      ar: ['نباتي راقٍ', 'معتق 7 سنوات', 'كمأة طازجة'],
+      en: ['Vegetarian Haute', '7-Year Aged Grain', 'Fresh Truffle'],
+    },
+    isAvailable: true,
+  },
+  {
+    id: 'intl-chilean-seabass',
+    name: {
+      ar: 'سمك القاروص التشيلي بالكراميل الميسو وصلصة الداشي الذهبية',
+      en: 'Glazed Glacier 51 Toothfish with Saikyo Miso & Golden Dashi',
+    },
+    category: 'international',
+    price: 165,
+    currency: 'USD',
+    image: '/src/assets/images/dish_caviar_seafood_1791697187291.jpg',
+    description: {
+      ar: 'سمك الأعماق الأنتاركتيكي الشهير بطبقاته البيضاء الزبدية، متبل لـ 72 ساعة في ميسو سايكيو الحلو من كيوتو، ومحمر حتى الكرملة الذهبية فوق مرق الداشي المدخن.',
+      en: 'Sustainable Glacier 51 Toothfish marinated 72 hours in organic Kyoto white Saikyo miso, charred under salamander grill, served over smoked katsuobushi golden dashi.',
+    },
+    ingredients: {
+      ar: ['سمك القاروص الأنتاركتيكي', 'ميسو سايكيو من كيوتو', 'مرق داشي ذهبي', 'زنجبيل الهاجيكامي المخلل'],
+      en: ['Glacier 51 Patagonian Toothfish', 'Kyoto Saikyo White Miso', 'Clair Golden Dashi', 'Hajikami Pickled Ginger'],
+    },
+    chefNotes: {
+      ar: 'رقائق السمك تتباعد مثل بتلات الورد وتذوب بدهونها الطبيعية الغنية بالأوميغا 3.',
+      en: 'Pearly, buttery flakes that separate effortlessly with sweet umami caramel notes.',
+    },
+    sommelierPairing: {
+      ar: 'ميرسو بريميير كرو 2019',
+      en: 'Domaine des Comtes Lafon Meursault 1er Cru 2019',
+    },
+    origin: {
+      ar: 'جزيرة هيرد — المحيط المتجمد الجنوبي',
+      en: 'Heard Island, Southern Ocean',
+    },
+    tags: {
+      ar: ['أطباق بحرية نادرة', 'مطبخ ياباني فرنسي', 'غني بالأوميغا 3'],
+      en: ['Rare Seafood', 'Japanese-French Fusion', 'Sustainably Caught'],
+    },
+    isAvailable: true,
+  },
+
+  // 5. Haute Seafood
+  {
+    id: 'sea-ossetra-tasting',
+    name: {
+      ar: 'موكب الكافيار الملكي الثلاثي مع بلينيز الحنطة السوداء',
+      en: 'Imperial Caviar Trilogy with Warm Buckwheat Blinis',
+    },
+    category: 'seafood',
+    price: 295,
+    currency: 'USD',
+    image: '/src/assets/images/dish_caviar_seafood_1791697187291.jpg',
+    description: {
+      ar: 'تشكيلة متدرجة من كافيار بيلوغا الملكي، وأوسيترا الإمبراطوري، وسيفرينكا الذهبي، تُقدم على أوعية كريستال مثلجة مع ملاعق من عرق اللؤلؤ الطبيعي وكريمة الإيغزيني الحامضة.',
+      en: 'Triple 30g presentation of Royal Beluga, Imperial Ossetra, and Golden Sevruga served over hand-chiseled crystal ice with mother-of-pearl spoons and house buckwheat blinis.',
+    },
+    ingredients: {
+      ar: ['كافيار بيلوغا ملكي 30غ', 'كافيار أوسيترا إمبراطوري 30غ', 'بلينيز الحنطة السوداء الطازجة', 'كريمة إيغزيني الفرنسية', 'صفار بيض السمان'],
+      en: ['Imperial Beluga Caviar', 'Royal Ossetra Caviar', 'Fresh Buckwheat Blinis', 'Crème Fraîche d’Isigny', 'Cured Quail Egg Yolk'],
+    },
+    chefNotes: {
+      ar: 'نستخدم ملاعق عرق اللؤلؤ حصرياً لتجنب تأكسد النكهات الرقيقة لأندر أنواع الكافيار في العالم.',
+      en: 'Served strictly with hand-carved mother-of-pearl spoons to preserve pure maritime mineral notes.',
+    },
+    sommelierPairing: {
+      ar: 'شامبانيا كريستال لويس رويدرير 2014',
+      en: 'Louis Roederer Cristal Brut Millésimé 2014',
+    },
+    origin: {
+      ar: 'بحر قزوين ونهر الدانوب',
+      en: 'Caspian Sea & Sustainable St. Pölten Reserve',
+    },
+    tags: {
+      ar: ['قمة الفخامة', 'كافيار نقي', 'عرق اللؤلؤ'],
+      en: ['Apex Luxury', 'Pure Caviar', 'Mother of Pearl'],
+    },
+    isAvailable: true,
+  },
+
+  // 6. Artisanal Desserts
+  {
+    id: 'des-gold-valrhona',
+    name: {
+      ar: 'قبة شوكولاتة فالرونا مع الكراميل المدخن وذهب 24 قيراط',
+      en: 'Noir Royale Valrhona Grand Cru Sphere with Smoked Caramel',
+    },
+    category: 'desserts',
+    price: 85,
+    currency: 'USD',
+    image: '/src/assets/images/dish_gold_chocolate_1791697208268.jpg',
+    description: {
+      ar: 'قبة براقة مصنوعة من شوكولاتة غواناخا 70% الحصرية، محشوة بموس حبوب الفانيليا التاهيتية، تذوب أمام الضيف بانسكاب صلصة الكراميل المملح الدافئة مع آيس كريم الدخان المعتق.',
+      en: 'Hand-cast sphere of 70% Valrhona Guanaja single-origin chocolate with Tahitian vanilla bean crémeux, gold foil crust, melted tableside with warm salted bourbon caramel.',
+    },
+    ingredients: {
+      ar: ['شوكولاتة فالرونا 70%', 'ذهب عيار 24', 'كراميل مدخن بالملح الصخري', 'فانيليا تاهيتية برية', 'بسكويت الكاكاو الهش'],
+      en: ['Valrhona Guanaja 70%', '24K Gold Dust & Flakes', 'Smoked Maldon Salted Caramel', 'Tahitian Vanilla Pods', 'Flourless Cocoa Dacquoise'],
+    },
+    chefNotes: {
+      ar: 'يتم صب الكراميل الساخن عند طاولة العشاء لتذوب القبة وتكشف عن قلب الفانيليا في مشهد استعراضي مذهل.',
+      en: 'Poured tableside with bespoke molten caramel to unveil the inner smoked velvet ganache.',
+    },
+    sommelierPairing: {
+      ar: 'شاتو ديكييم سوترن 2010',
+      en: "Château d'Yquem Sauternes 2010",
+    },
+    origin: {
+      ar: 'تينوريو، فنزويلا وتاهيتي',
+      en: 'Single-Estate Venezuela & Tahiti',
+    },
+    tags: {
+      ar: ['حلوى استعراضية', 'شوكولاتة نادرة', 'ذهب 24 قيراط'],
+      en: ['Tableside Theater', 'Grand Cru', '24K Gold Leaf'],
+    },
+    isChefRecommendation: true,
+    isAvailable: true,
+  },
+
+  // 7. Premium Beverages
+  {
+    id: 'bev-smoked-elixir',
+    name: {
+      ar: 'إكسير خشب الهينوكي والزعفران الملكي المدخن (Zero-Proof / Rare)',
+      en: 'Royal Smoked Cedar & Saffron Elixir',
+    },
+    category: 'beverages',
+    price: 45,
+    currency: 'USD',
+    image: '/src/assets/images/hero_luxe_dining_1791697165592.jpg',
+    description: {
+      ar: 'مشروب فاخر يتم تدخينه بخشب الأرز الياباني والزعفران الملكي في جرة زجاجية محكمة، يُسكب فوق مكعب ثلج نقي منحوت يدوياً مع خيوط الذهب الصالحة للشرب.',
+      en: 'Bespoke zero-proof or single-barrel concoction smoked tableside under a glass cloche with Japanese hinoki cedar wood, saffron essence, and hand-cut crystalline ice block with edible gold flakes.',
+    },
+    ingredients: {
+      ar: ['مستخلص الزعفران الملكي', 'دخان خشب الهينوكي الياباني', 'مكعب ثلج يدوي النحت', 'رقائق ذهب 24 قيراط'],
+      en: ['Kashmiri Royal Saffron', 'Smoked Hinoki Wood Smoke', 'Diamond-Cut Pure Ice', 'Edible 24K Gold Dust'],
+    },
+    chefNotes: {
+      ar: 'يُقدم تحت غطاء زجاجي مليء بدخان الأرز العطري يرتفع بمجرد فتحه ليكشف عن سحر المذاق.',
+      en: 'Presented under a fragrant cedar smoke cloche that lifts tableside with dramatic theatrical vapor.',
+    },
+    sommelierPairing: {
+      ar: 'أطباق اللحوم المدخنة وشوكولاتة فالرونا',
+      en: 'Pairs impeccably with A5 Wagyu and Grand Cru Desserts',
+    },
+    origin: {
+      ar: 'اليابان وكشمير',
+      en: 'Kyoto, Japan & Kashmir',
+    },
+    tags: {
+      ar: ['مشروب استعراضي', 'دخان الأرز الياباني', 'ذهب نقي'],
+      en: ['Tableside Smoke Theater', 'Hinoki Smoke', '24K Gold'],
+    },
+    isAvailable: true,
+  },
+];
